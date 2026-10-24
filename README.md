@@ -105,11 +105,14 @@ graph LR
 
 ### 3. Harvest Billing & Accounts Receivable (Cobros y Cartera)
 * **Tiered Volumetric Pricing Engine:** Embedded Dart logic (`calcularCostoDesgranado`) eliminates manual calculation errors:
-  $$\text{Total Cost} = \begin{cases} 
-      \text{quintales} \times \$1.00 & \text{if } \text{quintales} < 50 \\
-      \text{quintales} \times \$0.65 & \text{if } 50 \le \text{quintales} < 500 \\
-      \text{quintales} \times \$0.55 & \text{if } \text{quintales} \ge 500
-  \end{cases}$$
+
+``math
+\text{Total Cost} = \begin{cases}
+    \text{quintales} \times \.00 & \text{if } \text{quintales} < 50 \`\
+    \text{quintales} \times \.65 & \text{if } 50 \le \text{quintales} < 500 \`\
+    \text{quintales} \times \.55 & \text{if } \text{quintales} \ge 500
+\end{cases}
+``
 * **Multi-Payment Settlement:** Differentiates cash (`Efectivo`), bank transfer (`Transferencia`), and informal credit (`Fiado`).
 * **Active Credit Ledger (`CarteraClientes`):** Categorizes debtors in real time; allows Chief/Admin to execute payment liquidation (`registrarPagoCobro`), transitioning records from `Pendiente` to `Pagado` with timestamped auditing.
 
